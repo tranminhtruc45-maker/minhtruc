@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dự Án IT — Modern Landing</title>
+  <meta name="description" content="Trang giới thiệu dự án IT hiện đại, đẹp, responsive." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--accent:#6366f1}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    /* subtle glass card */
+    .glass{background:rgba(255,255,255,0.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800">
+
+<!-- NAVBAR -->
+<header class="fixed w-full z-30">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold">IT</div>
+      <div>
+        <div class="text-lg font-semibold">Dự Án IT</div>
+        <div class="text-xs text-gray-500">Thiết kế & triển khai</div>
+      </div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      <a href="#about" class="hover:text-indigo-600">Giới thiệu</a>
+      <a href="#features" class="hover:text-indigo-600">Tính năng</a>
+      <a href="#gallery" class="hover:text-indigo-600">Ảnh</a>
+      <a href="#contact" class="hover:text-indigo-600">Liên hệ</a>
+    </nav>
+
+    <div class="hidden md:flex gap-3">
+      <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm shadow hover:opacity-95">Liên hệ</a>
+    </div>
+
+    <!-- mobile menu button -->
+    <button id="btnMobile" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg">
+    <div class="px-4 py-4 flex flex-col gap-2">
+      <a href="#about" class="py-2">Giới thiệu</a>
+      <a href="#features" class="py-2">Tính năng</a>
+      <a href="#gallery" class="py-2">Ảnh</a>
+      <a href="#contact" class="py-2">Liên hệ</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<main class="pt-28">
+  <section class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div class="space-y-6">
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Xây dựng giải pháp IT hiện đại cho doanh nghiệp của bạn</h1>
+        <p class="text-gray-600 text-lg">Thiết kế giao diện đẹp, tối ưu hiệu năng, bảo mật và dễ mở rộng — từ web app, API đến hạ tầng đám mây.</p>
+        <div class="flex gap-3">
+          <a href="#contact" class="px-6 py-3 rounded-lg bg-indigo-600 text-white font-medium shadow">Yêu cầu demo</a>
+          <a href="#features" class="px-6 py-3 rounded-lg border border-gray-200 bg-white">Tìm hiểu thêm</a>
+        </div>
+
+        <div class="mt-4 grid grid-cols-3 gap-3">
+          <div class="glass p-3 rounded-lg text-center"> <div class="text-sm font-semibold">React / Vue</div><div class="text-xs text-gray-500">Front-end</div></div>
+          <div class="glass p-3 rounded-lg text-center"> <div class="text-sm font-semibold">Node / .NET</div><div class="text-xs text-gray-500">Backend</div></div>
+          <div class="glass p-3 rounded-lg text-center"> <div class="text-sm font-semibold">Docker / K8s</div><div class="text-xs text-gray-500">DevOps</div></div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="rounded-xl overflow-hidden shadow-lg">
+          <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981d?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=6c4f0c9b1d7b3f5a2b0b6f8a6f9e8a5b" alt="hero" class="w-full h-[360px] object-cover"/>
+        </div>
+        <div class="absolute -bottom-6 left-6 bg-white rounded-xl p-4 shadow-lg w-64">
+          <div class="text-xs text-gray-500">Đã triển khai</div>
+          <div class="font-semibold text-lg">120+ dự án</div>
+          <div class="text-sm text-gray-600">SaaS, e-commerce, internal tools</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="mt-20 max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-2xl font-bold">Giới thiệu dự án</h2>
+        <p class="mt-4 text-gray-600">Dự án tập trung vào trải nghiệm người dùng, hiệu năng và vận hành. Chúng tôi áp dụng <span class="font-medium text-indigo-600">CI/CD</span>, code review, testing tự động và giám sát 24/7.</p>
+        <ul class="mt-6 space-y-3">
+          <li class="flex items-start gap-3"><span class="text-indigo-600 font-semibold">•</span> Kiến trúc microservices khi cần</li>
+          <li class="flex items-start gap-3"><span class="text-indigo-600 font-semibold">•</span> Tối ưu chi phí cloud</li>
+          <li class="flex items-start gap-3"><span class="text-indigo-600 font-semibold">•</span> Bảo mật theo best-practice</li>
+        </ul>
+      </div>
+      <div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="p-4 rounded-lg glass">
+            <div class="text-sm text-gray-500">Thời gian</div>
+            <div class="text-lg font-semibold">2-6 tuần</div>
+          </div>
+          <div class="p-4 rounded-lg glass">
+            <div class="text-sm text-gray-500">Ngôn ngữ</div>
+            <div class="text-lg font-semibold">JavaScript / C# / Python</div>
+          </div>
+          <div class="p-4 rounded-lg glass">
+            <div class="text-sm text-gray-500">Triển khai</div>
+            <div class="text-lg font-semibold">AWS / GCP / Azure</div>
+          </div>
+          <div class="p-4 rounded-lg glass">
+            <div class="text-sm text-gray-500">Hỗ trợ</div>
+            <div class="text-lg font-semibold">24/7 SLA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="mt-20 max-w-6xl mx-auto px-6">
+    <h3 class="text-xl font-bold">Tính năng nổi bật</h3>
+    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="p-6 rounded-xl bg-white shadow">
+        <div class="text-indigo-600 font-bold">UI/UX đẹp</div>
+        <p class="mt-2 text-sm text-gray-600">Thiết kế trực quan, tối ưu chuyển đổi người dùng.</p>
+      </div>
+      <div class="p-6 rounded-xl bg-white shadow">
+        <div class="text-indigo-600 font-bold">API nhanh & bảo mật</div>
+        <p class="mt-2 text-sm text-gray-600">API tuân thủ REST / GraphQL, có rate-limit & authentication.</p>
+      </div>
+      <div class="p-6 rounded-xl bg-white shadow">
+        <div class="text-indigo-600 font-bold">Mở rộng dễ dàng</div>
+        <p class="mt-2 text-sm text-gray-600">Kiến trúc module giúp mở rộng tính năng nhanh chóng.</p>
+      </div>
+      <div class="p-6 rounded-xl bg-white shadow">
+        <div class="text-indigo-600 font-bold">Giám sát</div>
+        <p class="mt-2 text-sm text-gray-600">Logging & monitoring tích hợp sẵn.</p>
+      </div>
+      <div class="p-6 rounded-xl bg-white shadow">
+        <div class="text-indigo-600 font-bold">Tối ưu chi phí</div>
+        <p class="mt-2 text-sm text-gray-600">Thiết kế để giảm chi phí vận hành cloud.</p>
+      </div>
+      <div class="p-6 rounded-xl bg-white shadow">
+        <div class="text-indigo-600 font-bold">Hỗ trợ 24/7</div>
+        <p class="mt-2 text-sm text-gray-600">Đội ngũ sẵn sàng xử lý sự cố.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="mt-20 max-w-6xl mx-auto px-6">
+    <h3 class="text-xl font-bold">Ảnh mô tả</h3>
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <img class="rounded-lg shadow" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="project-1">
+      <img class="rounded-lg shadow" src="https://images.unsplash.com/photo-1526378720941-2f06b6d3e2c7?q=80&w=1200&auto=format&fit=crop" alt="project-2">
+      <img class="rounded-lg shadow" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="project-3">
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="mt-20 mb-20 max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <div class="p-8 rounded-xl bg-white shadow">
+        <h4 class="text-lg font-semibold">Nhận tư vấn miễn phí</h4>
+        <p class="mt-2 text-sm text-gray-600">Gửi thông tin, chúng tôi sẽ liên hệ trong vòng 24 giờ.</p>
+        <form class="mt-6 space-y-4" onsubmit="event.preventDefault(); alert('Gửi thành công — bạn có thể tích hợp backend sau.');">
+          <input required class="w-full px-4 py-3 rounded-lg border" placeholder="Họ và tên">
+          <input required class="w-full px-4 py-3 rounded-lg border" placeholder="Email hoặc SĐT">
+          <textarea required class="w-full px-4 py-3 rounded-lg border" rows="4" placeholder="Mô tả ngắn về nhu cầu"></textarea>
+          <div class="flex gap-3">
+            <button type="submit" class="px-5 py-3 rounded-lg bg-indigo-600 text-white">Gửi</button>
+            <button type="reset" class="px-5 py-3 rounded-lg border">Xoá</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="p-8 rounded-xl glass">
+        <h4 class="text-lg font-semibold">Thông tin liên hệ</h4>
+        <div class="mt-4 space-y-3 text-sm text-gray-600">
+          <div><strong>Địa chỉ:</strong> Thành phố của bạn</div>
+          <div><strong>Email:</strong> hello@du-an-it.local</div>
+          <div><strong>Điện thoại:</strong> 0123 456 789</div>
+        </div>
+
+        <div class="mt-6">
+          <h5 class="text-sm font-medium">Kỹ thuật sử dụng</h5>
+          <ul class="mt-2 text-sm text-gray-600 space-y-1">
+            <li>React, Vue, Tailwind</li>
+            <li>Node.js / .NET / Python</li>
+            <li>Docker, CI/CD, Cloud</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<foo
