@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins",sans-serif;
+    background-color: black;
+    color: white;
+    overflow: hidden;
+}
+
+
+.home_section{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+    padding: 2vh 2vw;
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav_contact_link{
+    height: 5vh;
+    padding: 0.75ch 1.5vw;
+    border: 1px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+    .nav_contact_link:hover{
+        background-color: white;
+        color: black;
+}
+
+.sup_hero_text{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2vw;
+    font-weight: 400;
+}
+
+.sup_hero_text p{
+    width: 35vw;
+    margin-top: 5vh;
+}
+
+.hero_text{
+    font-family: "Anton", sans-serif;
+    font-size: 10vw;
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.scroll_btn{
+    position: absolute;
+    bottom: 2vh;
+    right: 3vh;
+}
