@@ -1,210 +1,193 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dự Án IT — Modern Landing</title>
-  <meta name="description" content="Trang giới thiệu dự án IT hiện đại, đẹp, responsive." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Giới thiệu — Trần Minh Trực</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--accent:#6366f1}
-    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
-    /* subtle glass card */
-    .glass{background:rgba(255,255,255,0.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#98a0b3;
+      --accent-1:#7c5cff;
+      --accent-2:#00d4ff;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Arial,sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,0.12), transparent 8%),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(0,212,255,0.06), transparent 8%),
+                  var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 24px;
+    }
+    .container{max-width:980px;margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:28px;align-items:start}
+
+    /* SIDEBAR */
+    .card{
+      background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.02));
+      border-radius:16px;padding:26px;box-shadow:0 6px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.03)
+    }
+    .avatar{
+      width:120px;height:120px;border-radius:20px;overflow:hidden;margin:0 auto;display:block;border:2px solid rgba(255,255,255,0.06);
+      background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#071127;font-weight:700;font-size:28px
+    }
+    h1{font-size:20px;margin:12px 0 4px;text-align:center}
+    .role{text-align:center;color:var(--muted);font-size:13px;margin-bottom:14px}
+    .info{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+    .info-item{display:flex;gap:10px;align-items:center}
+    .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent-1),var(--accent-2))}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#021029;text-decoration:none;font-weight:600;text-align:center}
+
+    /* MAIN */
+    .hero{padding:28px;border-radius:16px;position:relative;overflow:hidden}
+    .hero .headline{display:flex;justify-content:space-between;align-items:center}
+    .name{font-size:28px;font-weight:700}
+    .tag{background:var(--glass);padding:8px 12px;border-radius:999px;color:var(--muted);font-weight:600}
+    p.lead{color:var(--muted);margin-top:12px;line-height:1.6}
+
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+    .section{background:linear-gradient(180deg,var(--glass),var(--glass-2));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .section h3{margin:0 0 8px;font-size:15px}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{padding:6px 10px;border-radius:10px;background:rgba(255,255,255,0.02);font-weight:600;font-size:13px}
+
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .timeline-item{display:flex;gap:12px;align-items:flex-start}
+    .timeline-item .meta{font-size:12px;color:var(--muted)}
+
+    .contact-list{display:flex;flex-direction:column;gap:8px}
+    .contact-list a{color:#cfeffd;text-decoration:none;font-weight:600}
+
+    /* responsive */
+    @media (max-width:880px){
+      .container{grid-template-columns:1fr;}
+      .grid{grid-template-columns:1fr}
+      body{padding:20px}
+    }
+
+    /* small flourish */
+    .sparkles{position:absolute;right:-40px;top:-30px;opacity:0.12;font-size:110px;transform:rotate(-18deg)}
   </style>
 </head>
-<body class="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800">
+<body>
+  <div class="container">
+    <aside class="card">
+      <div class="avatar" aria-hidden="true">TM</div>
+      <h1>Trần Minh Trực</h1>
+      <div class="role">Sinh viên • Nhà phát triển • Người yêu công nghệ</div>
 
-<!-- NAVBAR -->
-<header class="fixed w-full z-30">
-  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-    <a href="#" class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold">IT</div>
-      <div>
-        <div class="text-lg font-semibold">Dự Án IT</div>
-        <div class="text-xs text-gray-500">Thiết kế & triển khai</div>
+      <div class="info">
+        <div class="info-item"><div class="dot"></div><div><strong>Địa chỉ</strong><div style="color:var(--muted);font-size:13px">Việt Nam</div></div></div>
+        <div class="info-item"><div class="dot"></div><div><strong>Email</strong><div style="color:var(--muted);font-size:13px">truc.example@email.com</div></div></div>
+        <div class="info-item"><div class="dot"></div><div><strong>Điện thoại</strong><div style="color:var(--muted);font-size:13px">+84 9x xxx xxxx</div></div></div>
       </div>
-    </a>
 
-    <nav class="hidden md:flex items-center gap-6 text-sm">
-      <a href="#about" class="hover:text-indigo-600">Giới thiệu</a>
-      <a href="#features" class="hover:text-indigo-600">Tính năng</a>
-      <a href="#gallery" class="hover:text-indigo-600">Ảnh</a>
-      <a href="#contact" class="hover:text-indigo-600">Liên hệ</a>
-    </nav>
+      <div style="margin-top:18px;text-align:center">
+        <a class="btn" href="#contact">Liên hệ</a>
+      </div>
+    </aside>
 
-    <div class="hidden md:flex gap-3">
-      <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm shadow hover:opacity-95">Liên hệ</a>
-    </div>
+    <main>
+      <section class="card hero">
+        <div class="sparkles">✦ ✦</div>
+        <div class="headline">
+          <div>
+            <div class="name">Xin chào, mình là <span style="color:var(--accent-2)">Trần Minh Trực</span></div>
+            <div class="tag">Đam mê công nghệ • Học hỏi mỗi ngày</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:12px;color:var(--muted)">Cập nhật: <strong>2025</strong></div>
+            <div style="height:10px"></div>
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="0" y="0" width="24" height="24" rx="6" fill="url(#g)"/>
+              <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#7c5cff" />
+                  <stop offset="1" stop-color="#00d4ff" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
 
-    <!-- mobile menu button -->
-    <button id="btnMobile" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
+        <p class="lead">Mình là một sinh viên đam mê phát triển phần mềm, thích khám phá các công nghệ mới như web full‑stack, trí tuệ nhân tạo và thiết kế trải nghiệm người dùng. Mục tiêu là xây dựng những sản phẩm có giá trị thực tế và học hỏi liên tục qua mỗi dự án.</p>
+
+        <div class="grid">
+          <div class="section">
+            <h3>Kỹ năng</h3>
+            <div class="skills">
+              <div class="skill">HTML &amp; CSS</div>
+              <div class="skill">JavaScript</div>
+              <div class="skill">React</div>
+              <div class="skill">Python</div>
+              <div class="skill">Git</div>
+              <div class="skill">UI/UX</div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Kinh nghiệm ngắn</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div style="min-width:80px" class="meta">2024</div>
+                <div>
+                  <strong>Thực tập Frontend</strong>
+                  <div style="color:var(--muted);font-size:13px">Tham gia phát triển giao diện web cho sản phẩm nội bộ.</div>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="meta">2023</div>
+                <div>
+                  <strong>Dự án cá nhân</strong>
+                  <div style="color:var(--muted);font-size:13px">Xây dựng ứng dụng quản lý công việc nhỏ dùng React + Firebase.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top:18px">
+        <h3>Giới thiệu chi tiết</h3>
+        <p style="color:var(--muted);line-height:1.7">Mình tên là <strong>Trần Minh Trực</strong>. Hiện đang theo học và phát triển kỹ năng về lập trình web. Mình thích làm việc nhóm, giải quyết vấn đề và tối ưu trải nghiệm người dùng. Ngoài lập trình, mình thích đọc sách, chụp ảnh và tham gia các hoạt động cộng đồng.</p>
+
+        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+          <a class="skill" href="#">Xem CV</a>
+          <a class="skill" href="#">Dự án</a>
+          <a class="skill" href="#contact">Liên hệ</a>
+        </div>
+      </section>
+
+      <section class="grid" style="margin-top:18px">
+        <div class="section">
+          <h3>Học vấn</h3>
+          <div style="color:var(--muted);font-size:14px">Đại học — Chuyên ngành: Công nghệ thông tin<br>2021 — Hiện tại</div>
+        </div>
+
+        <div class="section" id="contact">
+          <h3>Liên hệ</h3>
+          <div class="contact-list">
+            <a href="mailto:truc.example@email.com">truc.example@email.com</a>
+            <a href="tel:+849xxxxxxx">+84 9x xxx xxxx</a>
+            <div style="color:var(--muted);font-size:13px">LinkedIn / GitHub / Telegram — Thêm ở đây</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
   </div>
 
-  <!-- mobile menu -->
-  <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg">
-    <div class="px-4 py-4 flex flex-col gap-2">
-      <a href="#about" class="py-2">Giới thiệu</a>
-      <a href="#features" class="py-2">Tính năng</a>
-      <a href="#gallery" class="py-2">Ảnh</a>
-      <a href="#contact" class="py-2">Liên hệ</a>
-    </div>
-  </div>
-</header>
+  <footer style="max-width:980px;margin:28px auto 0;color:var(--muted);font-size:13px;text-align:center">
+    © 2025 Trần Minh Trực — Thiết kế giao diện cá nhân
+  </footer>
+</body>
+</html>
 
-<!-- HERO -->
-<main class="pt-28">
-  <section class="max-w-6xl mx-auto px-6">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-      <div class="space-y-6">
-        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Xây dựng giải pháp IT hiện đại cho doanh nghiệp của bạn</h1>
-        <p class="text-gray-600 text-lg">Thiết kế giao diện đẹp, tối ưu hiệu năng, bảo mật và dễ mở rộng — từ web app, API đến hạ tầng đám mây.</p>
-        <div class="flex gap-3">
-          <a href="#contact" class="px-6 py-3 rounded-lg bg-indigo-600 text-white font-medium shadow">Yêu cầu demo</a>
-          <a href="#features" class="px-6 py-3 rounded-lg border border-gray-200 bg-white">Tìm hiểu thêm</a>
-        </div>
-
-        <div class="mt-4 grid grid-cols-3 gap-3">
-          <div class="glass p-3 rounded-lg text-center"> <div class="text-sm font-semibold">React / Vue</div><div class="text-xs text-gray-500">Front-end</div></div>
-          <div class="glass p-3 rounded-lg text-center"> <div class="text-sm font-semibold">Node / .NET</div><div class="text-xs text-gray-500">Backend</div></div>
-          <div class="glass p-3 rounded-lg text-center"> <div class="text-sm font-semibold">Docker / K8s</div><div class="text-xs text-gray-500">DevOps</div></div>
-        </div>
-      </div>
-
-      <div class="relative">
-        <div class="rounded-xl overflow-hidden shadow-lg">
-          <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981d?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=6c4f0c9b1d7b3f5a2b0b6f8a6f9e8a5b" alt="hero" class="w-full h-[360px] object-cover"/>
-        </div>
-        <div class="absolute -bottom-6 left-6 bg-white rounded-xl p-4 shadow-lg w-64">
-          <div class="text-xs text-gray-500">Đã triển khai</div>
-          <div class="font-semibold text-lg">120+ dự án</div>
-          <div class="text-sm text-gray-600">SaaS, e-commerce, internal tools</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="mt-20 max-w-6xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-10 items-center">
-      <div>
-        <h2 class="text-2xl font-bold">Giới thiệu dự án</h2>
-        <p class="mt-4 text-gray-600">Dự án tập trung vào trải nghiệm người dùng, hiệu năng và vận hành. Chúng tôi áp dụng <span class="font-medium text-indigo-600">CI/CD</span>, code review, testing tự động và giám sát 24/7.</p>
-        <ul class="mt-6 space-y-3">
-          <li class="flex items-start gap-3"><span class="text-indigo-600 font-semibold">•</span> Kiến trúc microservices khi cần</li>
-          <li class="flex items-start gap-3"><span class="text-indigo-600 font-semibold">•</span> Tối ưu chi phí cloud</li>
-          <li class="flex items-start gap-3"><span class="text-indigo-600 font-semibold">•</span> Bảo mật theo best-practice</li>
-        </ul>
-      </div>
-      <div>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="p-4 rounded-lg glass">
-            <div class="text-sm text-gray-500">Thời gian</div>
-            <div class="text-lg font-semibold">2-6 tuần</div>
-          </div>
-          <div class="p-4 rounded-lg glass">
-            <div class="text-sm text-gray-500">Ngôn ngữ</div>
-            <div class="text-lg font-semibold">JavaScript / C# / Python</div>
-          </div>
-          <div class="p-4 rounded-lg glass">
-            <div class="text-sm text-gray-500">Triển khai</div>
-            <div class="text-lg font-semibold">AWS / GCP / Azure</div>
-          </div>
-          <div class="p-4 rounded-lg glass">
-            <div class="text-sm text-gray-500">Hỗ trợ</div>
-            <div class="text-lg font-semibold">24/7 SLA</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section id="features" class="mt-20 max-w-6xl mx-auto px-6">
-    <h3 class="text-xl font-bold">Tính năng nổi bật</h3>
-    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="p-6 rounded-xl bg-white shadow">
-        <div class="text-indigo-600 font-bold">UI/UX đẹp</div>
-        <p class="mt-2 text-sm text-gray-600">Thiết kế trực quan, tối ưu chuyển đổi người dùng.</p>
-      </div>
-      <div class="p-6 rounded-xl bg-white shadow">
-        <div class="text-indigo-600 font-bold">API nhanh & bảo mật</div>
-        <p class="mt-2 text-sm text-gray-600">API tuân thủ REST / GraphQL, có rate-limit & authentication.</p>
-      </div>
-      <div class="p-6 rounded-xl bg-white shadow">
-        <div class="text-indigo-600 font-bold">Mở rộng dễ dàng</div>
-        <p class="mt-2 text-sm text-gray-600">Kiến trúc module giúp mở rộng tính năng nhanh chóng.</p>
-      </div>
-      <div class="p-6 rounded-xl bg-white shadow">
-        <div class="text-indigo-600 font-bold">Giám sát</div>
-        <p class="mt-2 text-sm text-gray-600">Logging & monitoring tích hợp sẵn.</p>
-      </div>
-      <div class="p-6 rounded-xl bg-white shadow">
-        <div class="text-indigo-600 font-bold">Tối ưu chi phí</div>
-        <p class="mt-2 text-sm text-gray-600">Thiết kế để giảm chi phí vận hành cloud.</p>
-      </div>
-      <div class="p-6 rounded-xl bg-white shadow">
-        <div class="text-indigo-600 font-bold">Hỗ trợ 24/7</div>
-        <p class="mt-2 text-sm text-gray-600">Đội ngũ sẵn sàng xử lý sự cố.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="gallery" class="mt-20 max-w-6xl mx-auto px-6">
-    <h3 class="text-xl font-bold">Ảnh mô tả</h3>
-    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <img class="rounded-lg shadow" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="project-1">
-      <img class="rounded-lg shadow" src="https://images.unsplash.com/photo-1526378720941-2f06b6d3e2c7?q=80&w=1200&auto=format&fit=crop" alt="project-2">
-      <img class="rounded-lg shadow" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="project-3">
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="mt-20 mb-20 max-w-6xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-8 items-start">
-      <div class="p-8 rounded-xl bg-white shadow">
-        <h4 class="text-lg font-semibold">Nhận tư vấn miễn phí</h4>
-        <p class="mt-2 text-sm text-gray-600">Gửi thông tin, chúng tôi sẽ liên hệ trong vòng 24 giờ.</p>
-        <form class="mt-6 space-y-4" onsubmit="event.preventDefault(); alert('Gửi thành công — bạn có thể tích hợp backend sau.');">
-          <input required class="w-full px-4 py-3 rounded-lg border" placeholder="Họ và tên">
-          <input required class="w-full px-4 py-3 rounded-lg border" placeholder="Email hoặc SĐT">
-          <textarea required class="w-full px-4 py-3 rounded-lg border" rows="4" placeholder="Mô tả ngắn về nhu cầu"></textarea>
-          <div class="flex gap-3">
-            <button type="submit" class="px-5 py-3 rounded-lg bg-indigo-600 text-white">Gửi</button>
-            <button type="reset" class="px-5 py-3 rounded-lg border">Xoá</button>
-          </div>
-        </form>
-      </div>
-
-      <div class="p-8 rounded-xl glass">
-        <h4 class="text-lg font-semibold">Thông tin liên hệ</h4>
-        <div class="mt-4 space-y-3 text-sm text-gray-600">
-          <div><strong>Địa chỉ:</strong> Thành phố của bạn</div>
-          <div><strong>Email:</strong> hello@du-an-it.local</div>
-          <div><strong>Điện thoại:</strong> 0123 456 789</div>
-        </div>
-
-        <div class="mt-6">
-          <h5 class="text-sm font-medium">Kỹ thuật sử dụng</h5>
-          <ul class="mt-2 text-sm text-gray-600 space-y-1">
-            <li>React, Vue, Tailwind</li>
-            <li>Node.js / .NET / Python</li>
-            <li>Docker, CI/CD, Cloud</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- FOOTER -->
-
-<foo
