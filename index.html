@@ -1,193 +1,233 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Giới thiệu — Trần Minh Trực</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Game đơn giản — Đăng nhập</title>
   <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#98a0b3;
-      --accent-1:#7c5cff;
-      --accent-2:#00d4ff;
-      --glass: rgba(255,255,255,0.04);
-      --glass-2: rgba(255,255,255,0.02);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,Arial,sans-serif;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,0.12), transparent 8%),
-                  radial-gradient(1000px 500px at 90% 90%, rgba(0,212,255,0.06), transparent 8%),
-                  var(--bg);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:40px 24px;
-    }
-    .container{max-width:980px;margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:28px;align-items:start}
+    :root{--bg:#0f172a;--card:#111827;--accent:#06b6d4;--muted:#9ca3af}
+    *{box-sizing:border-box;font-family:Inter, system-ui, Arial, sans-serif}
+    body{margin:0;min-height:100vh;background:linear-gradient(180deg,#071024 0%, #0b1220 100%);display:flex;align-items:center;justify-content:center;color:#e6eef6}
+    .container{width:920px;max-width:95%;display:grid;grid-template-columns:360px 1fr;gap:24px;background:rgba(255,255,255,0.02);padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
 
-    /* SIDEBAR */
-    .card{
-      background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.02));
-      border-radius:16px;padding:26px;box-shadow:0 6px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.03)
-    }
-    .avatar{
-      width:120px;height:120px;border-radius:20px;overflow:hidden;margin:0 auto;display:block;border:2px solid rgba(255,255,255,0.06);
-      background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#071127;font-weight:700;font-size:28px
-    }
-    h1{font-size:20px;margin:12px 0 4px;text-align:center}
-    .role{text-align:center;color:var(--muted);font-size:13px;margin-bottom:14px}
-    .info{display:flex;flex-direction:column;gap:10px;margin-top:8px}
-    .info-item{display:flex;gap:10px;align-items:center}
-    .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent-1),var(--accent-2))}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#021029;text-decoration:none;font-weight:600;text-align:center}
+    /* Login panel */
+    .login{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:10px}
+    .logo{display:flex;gap:12px;align-items:center;margin-bottom:8px}
+    .logo-mark{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#07203a}
+    h2{margin:6px 0 12px;font-size:20px}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input[type=text], input[type=password]{width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:inherit;margin-bottom:12px}
+    .row{display:flex;gap:8px}
+    button{cursor:pointer;padding:10px 14px;border-radius:8px;border:0;background:var(--accent);color:#042;font-weight:600}
+    button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .small{font-size:13px;color:var(--muted);margin-top:8px}
 
-    /* MAIN */
-    .hero{padding:28px;border-radius:16px;position:relative;overflow:hidden}
-    .hero .headline{display:flex;justify-content:space-between;align-items:center}
-    .name{font-size:28px;font-weight:700}
-    .tag{background:var(--glass);padding:8px 12px;border-radius:999px;color:var(--muted);font-weight:600}
-    p.lead{color:var(--muted);margin-top:12px;line-height:1.6}
+    /* Game area */
+    .game-panel{padding:22px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));display:flex;flex-direction:column;gap:12px}
+    .game-header{display:flex;justify-content:space-between;align-items:center}
+    .stats{display:flex;gap:12px;align-items:center}
+    .stat{background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:8px;font-weight:600}
+    .board{flex:1;min-height:340px;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(180deg,#061125 0%, #04101b 100%);border:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center}
+    .target{position:absolute;width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;color:#081018;font-weight:800;box-shadow:0 6px 18px rgba(239,68,68,0.16);cursor:pointer;user-select:none}
+    .start-controls{display:flex;gap:8px;align-items:center}
+    .help{font-size:13px;color:var(--muted)}
 
-    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
-    .section{background:linear-gradient(180deg,var(--glass),var(--glass-2));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-    .section h3{margin:0 0 8px;font-size:15px}
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .skill{padding:6px 10px;border-radius:10px;background:rgba(255,255,255,0.02);font-weight:600;font-size:13px}
+    footer{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
 
-    .timeline{display:flex;flex-direction:column;gap:12px}
-    .timeline-item{display:flex;gap:12px;align-items:flex-start}
-    .timeline-item .meta{font-size:12px;color:var(--muted)}
-
-    .contact-list{display:flex;flex-direction:column;gap:8px}
-    .contact-list a{color:#cfeffd;text-decoration:none;font-weight:600}
-
-    /* responsive */
-    @media (max-width:880px){
+    @media (max-width:760px){
       .container{grid-template-columns:1fr;}
-      .grid{grid-template-columns:1fr}
-      body{padding:20px}
     }
-
-    /* small flourish */
-    .sparkles{position:absolute;right:-40px;top:-30px;opacity:0.12;font-size:110px;transform:rotate(-18deg)}
   </style>
 </head>
 <body>
   <div class="container">
-    <aside class="card">
-      <div class="avatar" aria-hidden="true">TM</div>
-      <h1>Trần Minh Trực</h1>
-      <div class="role">Sinh viên • Nhà phát triển • Người yêu công nghệ</div>
-
-      <div class="info">
-        <div class="info-item"><div class="dot"></div><div><strong>Địa chỉ</strong><div style="color:var(--muted);font-size:13px">Việt Nam</div></div></div>
-        <div class="info-item"><div class="dot"></div><div><strong>Email</strong><div style="color:var(--muted);font-size:13px">truc.example@email.com</div></div></div>
-        <div class="info-item"><div class="dot"></div><div><strong>Điện thoại</strong><div style="color:var(--muted);font-size:13px">+84 9x xxx xxxx</div></div></div>
+    <div class="login">
+      <div class="logo">
+        <div class="logo-mark">GM</div>
+        <div>
+          <div style="font-weight:700">Mini Game</div>
+          <div class="small">Đăng nhập để chơi — không cần server, lưu tạm ở trình duyệt</div>
+        </div>
       </div>
 
-      <div style="margin-top:18px;text-align:center">
-        <a class="btn" href="#contact">Liên hệ</a>
+      <h2>Đăng nhập</h2>
+      <div>
+        <label for="username">Tên người dùng</label>
+        <input id="username" type="text" placeholder="Nhập tên..." autocomplete="off">
+
+        <label for="password">Mật khẩu</label>
+        <input id="password" type="password" placeholder="Nhập mật khẩu...">
+
+        <div class="row">
+          <button id="loginBtn">Đăng nhập</button>
+          <button class="ghost" id="guestBtn">Chơi dưới dạng khách</button>
+        </div>
+
+        <div class="small">Lưu ý: Đây chỉ là demo. Mật khẩu không được gửi đi — mọi thứ lưu trong localStorage.</div>
       </div>
-    </aside>
+    </div>
 
-    <main>
-      <section class="card hero">
-        <div class="sparkles">✦ ✦</div>
-        <div class="headline">
-          <div>
-            <div class="name">Xin chào, mình là <span style="color:var(--accent-2)">Trần Minh Trực</span></div>
-            <div class="tag">Đam mê công nghệ • Học hỏi mỗi ngày</div>
-          </div>
-          <div style="text-align:right">
-            <div style="font-size:12px;color:var(--muted)">Cập nhật: <strong>2025</strong></div>
-            <div style="height:10px"></div>
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="0" y="0" width="24" height="24" rx="6" fill="url(#g)"/>
-              <defs>
-                <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#7c5cff" />
-                  <stop offset="1" stop-color="#00d4ff" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
+    <div class="game-panel">
+      <div class="game-header">
+        <div>
+          <div style="font-weight:700" id="greeting">Chưa đăng nhập</div>
+          <div class="help">Bấm vào điểm đỏ nhiều nhất trong 30 giây</div>
         </div>
-
-        <p class="lead">Mình là một sinh viên đam mê phát triển phần mềm, thích khám phá các công nghệ mới như web full‑stack, trí tuệ nhân tạo và thiết kế trải nghiệm người dùng. Mục tiêu là xây dựng những sản phẩm có giá trị thực tế và học hỏi liên tục qua mỗi dự án.</p>
-
-        <div class="grid">
-          <div class="section">
-            <h3>Kỹ năng</h3>
-            <div class="skills">
-              <div class="skill">HTML &amp; CSS</div>
-              <div class="skill">JavaScript</div>
-              <div class="skill">React</div>
-              <div class="skill">Python</div>
-              <div class="skill">Git</div>
-              <div class="skill">UI/UX</div>
-            </div>
-          </div>
-
-          <div class="section">
-            <h3>Kinh nghiệm ngắn</h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div style="min-width:80px" class="meta">2024</div>
-                <div>
-                  <strong>Thực tập Frontend</strong>
-                  <div style="color:var(--muted);font-size:13px">Tham gia phát triển giao diện web cho sản phẩm nội bộ.</div>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="meta">2023</div>
-                <div>
-                  <strong>Dự án cá nhân</strong>
-                  <div style="color:var(--muted);font-size:13px">Xây dựng ứng dụng quản lý công việc nhỏ dùng React + Firebase.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="stats">
+          <div class="stat">Thời gian: <span id="time">0</span>s</div>
+          <div class="stat">Điểm: <span id="score">0</span></div>
+          <div class="stat">Cao nhất: <span id="high">0</span></div>
         </div>
-      </section>
+      </div>
 
-      <section class="card" style="margin-top:18px">
-        <h3>Giới thiệu chi tiết</h3>
-        <p style="color:var(--muted);line-height:1.7">Mình tên là <strong>Trần Minh Trực</strong>. Hiện đang theo học và phát triển kỹ năng về lập trình web. Mình thích làm việc nhóm, giải quyết vấn đề và tối ưu trải nghiệm người dùng. Ngoài lập trình, mình thích đọc sách, chụp ảnh và tham gia các hoạt động cộng đồng.</p>
+      <div class="board" id="board">
+        <div class="target" id="target">1</div>
+      </div>
 
-        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
-          <a class="skill" href="#">Xem CV</a>
-          <a class="skill" href="#">Dự án</a>
-          <a class="skill" href="#contact">Liên hệ</a>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div class="start-controls">
+          <label for="duration" class="small">Thời lượng (giây)</label>
+          <input id="duration" type="number" value="30" min="5" max="120" style="width:80px;padding:6px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+          <button id="startBtn">Bắt đầu</button>
+          <button id="resetBtn" class="ghost">Đặt lại điểm</button>
         </div>
-      </section>
+        <div class="help">Mẹo: điểm tăng thêm nếu bấm nhanh nhiều lần</div>
+      </div>
 
-      <section class="grid" style="margin-top:18px">
-        <div class="section">
-          <h3>Học vấn</h3>
-          <div style="color:var(--muted);font-size:14px">Đại học — Chuyên ngành: Công nghệ thông tin<br>2021 — Hiện tại</div>
-        </div>
-
-        <div class="section" id="contact">
-          <h3>Liên hệ</h3>
-          <div class="contact-list">
-            <a href="mailto:truc.example@email.com">truc.example@email.com</a>
-            <a href="tel:+849xxxxxxx">+84 9x xxx xxxx</a>
-            <div style="color:var(--muted);font-size:13px">LinkedIn / GitHub / Telegram — Thêm ở đây</div>
-          </div>
-        </div>
-      </section>
-
-    </main>
+      <footer>Demo đơn giản với HTML/CSS/JS — không yêu cầu server</footer>
+    </div>
   </div>
 
-  <footer style="max-width:980px;margin:28px auto 0;color:var(--muted);font-size:13px;text-align:center">
-    © 2025 Trần Minh Trực — Thiết kế giao diện cá nhân
-  </footer>
+  <script>
+    // --- Elements ---
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const loginBtn = document.getElementById('loginBtn');
+    const guestBtn = document.getElementById('guestBtn');
+    const greeting = document.getElementById('greeting');
+    const board = document.getElementById('board');
+    const target = document.getElementById('target');
+    const timeEl = document.getElementById('time');
+    const scoreEl = document.getElementById('score');
+    const highEl = document.getElementById('high');
+    const startBtn = document.getElementById('startBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const durationInput = document.getElementById('duration');
+
+    // --- State ---
+    let username = null;
+    let score = 0;
+    let high = Number(localStorage.getItem('mini-game-high') || 0);
+    let timer = null;
+    let timeLeft = 0;
+
+    highEl.textContent = high;
+    timeEl.textContent = 0;
+
+    // Simple "login": accept any non-empty username/password and store in localStorage
+    function doLogin(asGuest=false) {
+      if (asGuest) {
+        username = 'Khách';
+      } else {
+        const u = usernameInput.value.trim();
+        const p = passwordInput.value.trim();
+        if (!u || !p) { alert('Vui lòng nhập cả tên và mật khẩu.'); return; }
+        // For demo only: we "save" a small profile in localStorage
+        username = u;
+        localStorage.setItem('mini-game-user', JSON.stringify({username:u, created:Date.now()}));
+      }
+      greeting.textContent = `Xin chào, ${username}`;
+    }
+
+    loginBtn.addEventListener('click', ()=>doLogin(false));
+    guestBtn.addEventListener('click', ()=>doLogin(true));
+
+    // Place the target randomly inside the board (keeping it fully visible)
+    function placeTarget() {
+      const rect = board.getBoundingClientRect();
+      const tW = target.offsetWidth;
+      const tH = target.offsetHeight;
+      const x = Math.random() * (rect.width - tW);
+      const y = Math.random() * (rect.height - tH);
+      target.style.transform = `translate(${x}px, ${y}px)`;
+      target.textContent = Math.floor(Math.random()*9)+1;
+    }
+
+    // Start game
+    function startGame() {
+      if (!username) { alert('Vui lòng đăng nhập hoặc chơi dưới dạng khách trước khi bắt đầu.'); return; }
+      score = 0;
+      scoreEl.textContent = score;
+      timeLeft = Math.max(5, Math.min(120, Number(durationInput.value) || 30));
+      timeEl.textContent = timeLeft;
+      startBtn.disabled = true;
+      placeTarget();
+
+      timer = setInterval(()=>{
+        timeLeft -= 1;
+        timeEl.textContent = timeLeft;
+        if (timeLeft <= 0) endGame();
+      }, 1000);
+    }
+
+    function endGame() {
+      clearInterval(timer);
+      timer = null;
+      startBtn.disabled = false;
+      // update high score per username
+      const key = `mini-game-high-${username}`;
+      const prev = Number(localStorage.getItem(key) || 0);
+      if (score > prev) {
+        localStorage.setItem(key, score);
+        // also save global high
+        if (score > high) { high = score; localStorage.setItem('mini-game-high', high); highEl.textContent = high; }
+        alert(`Kết thúc! Điểm: ${score}. Đây là điểm cao mới của bạn!`);
+      } else {
+        alert(`Kết thúc! Điểm: ${score}. Điểm cao của bạn: ${prev}`);
+      }
+    }
+
+    // Clicking the target increases score and moves it
+    target.addEventListener('click', (e)=>{
+      if (!timer) return; // only count clicks during active game
+      // small scoring rule: number shown * random multiplier
+      const base = Number(target.textContent) || 1;
+      const combo = Math.max(1, Math.floor(Math.random()*3)+1);
+      score += base * combo;
+      scoreEl.textContent = score;
+      // visual feedback
+      target.style.transform += ' scale(0.95)';
+      setTimeout(()=>{ placeTarget(); }, 120);
+    });
+
+    // Reset local high score for current user
+    resetBtn.addEventListener('click', ()=>{
+      if (!username) { alert('Đăng nhập trước đã.'); return; }
+      const key = `mini-game-high-${username}`;
+      localStorage.removeItem(key);
+      alert('Điểm cao của bạn đã được đặt lại.');
+    });
+
+    startBtn.addEventListener('click', startGame);
+
+    // Restore previous session user if any
+    (function restore(){
+      const u = localStorage.getItem('mini-game-user');
+      if (u) {
+        try{ username = JSON.parse(u).username; greeting.textContent = `Xin chào, ${username}`; }catch(e){}
+      }
+      // load per-user high
+      if (username) {
+        const key = `mini-game-high-${username}`;
+        const h = Number(localStorage.getItem(key) || localStorage.getItem('mini-game-high') || 0);
+        highEl.textContent = h;
+      }
+      placeTarget();
+    })();
+
+    // Make target react to window resize
+    window.addEventListener('resize', ()=>{ if (!timer) placeTarget(); });
+  </script>
 </body>
 </html>
 
