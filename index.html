@@ -1,233 +1,50 @@
-<!doctype html>
-<html lang="vi">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Game đơn giản — Đăng nhập</title>
-  <style>
-    :root{--bg:#0f172a;--card:#111827;--accent:#06b6d4;--muted:#9ca3af}
-    *{box-sizing:border-box;font-family:Inter, system-ui, Arial, sans-serif}
-    body{margin:0;min-height:100vh;background:linear-gradient(180deg,#071024 0%, #0b1220 100%);display:flex;align-items:center;justify-content:center;color:#e6eef6}
-    .container{width:920px;max-width:95%;display:grid;grid-template-columns:360px 1fr;gap:24px;background:rgba(255,255,255,0.02);padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
-
-    /* Login panel */
-    .login{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:10px}
-    .logo{display:flex;gap:12px;align-items:center;margin-bottom:8px}
-    .logo-mark{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#07203a}
-    h2{margin:6px 0 12px;font-size:20px}
-    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
-    input[type=text], input[type=password]{width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:inherit;margin-bottom:12px}
-    .row{display:flex;gap:8px}
-    button{cursor:pointer;padding:10px 14px;border-radius:8px;border:0;background:var(--accent);color:#042;font-weight:600}
-    button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-    .small{font-size:13px;color:var(--muted);margin-top:8px}
-
-    /* Game area */
-    .game-panel{padding:22px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));display:flex;flex-direction:column;gap:12px}
-    .game-header{display:flex;justify-content:space-between;align-items:center}
-    .stats{display:flex;gap:12px;align-items:center}
-    .stat{background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:8px;font-weight:600}
-    .board{flex:1;min-height:340px;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(180deg,#061125 0%, #04101b 100%);border:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center}
-    .target{position:absolute;width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;color:#081018;font-weight:800;box-shadow:0 6px 18px rgba(239,68,68,0.16);cursor:pointer;user-select:none}
-    .start-controls{display:flex;gap:8px;align-items:center}
-    .help{font-size:13px;color:var(--muted)}
-
-    footer{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
-
-    @media (max-width:760px){
-      .container{grid-template-columns:1fr;}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my portfolio</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <div class="container">
-    <div class="login">
-      <div class="logo">
-        <div class="logo-mark">GM</div>
-        <div>
-          <div style="font-weight:700">Mini Game</div>
-          <div class="small">Đăng nhập để chơi — không cần server, lưu tạm ở trình duyệt</div>
-        </div>
-      </div>
+    <div class="home_section">
+        <nav>
+            <span>Minh Truc</span>
+            <span>Projects</span>
+            <span>
+                UX/UI Designer
+                <br />
+                software Engineer
+            </span>
+            <span class="nav_contact_link">Contact</span>
+        </nav>
 
-      <h2>Đăng nhập</h2>
-      <div>
-        <label for="username">Tên người dùng</label>
-        <input id="username" type="text" placeholder="Nhập tên..." autocomplete="off">
+        <span class="sup_hero_text">
+            <p>xin chao toi ten tran minh truc</p>
+        </span>
 
-        <label for="password">Mật khẩu</label>
-        <input id="password" type="password" placeholder="Nhập mật khẩu...">
-
-        <div class="row">
-          <button id="loginBtn">Đăng nhập</button>
-          <button class="ghost" id="guestBtn">Chơi dưới dạng khách</button>
-        </div>
-
-        <div class="small">Lưu ý: Đây chỉ là demo. Mật khẩu không được gửi đi — mọi thứ lưu trong localStorage.</div>
-      </div>
+        <span class="hero_text">
+            website
+            <br />
+            developer
+        </span>
+        <span class="scroll_btn">(scroll to xplore)</span>
+    </div>
+    
+    <div class="about_section">
+        Section
     </div>
 
-    <div class="game-panel">
-      <div class="game-header">
-        <div>
-          <div style="font-weight:700" id="greeting">Chưa đăng nhập</div>
-          <div class="help">Bấm vào điểm đỏ nhiều nhất trong 30 giây</div>
-        </div>
-        <div class="stats">
-          <div class="stat">Thời gian: <span id="time">0</span>s</div>
-          <div class="stat">Điểm: <span id="score">0</span></div>
-          <div class="stat">Cao nhất: <span id="high">0</span></div>
-        </div>
-      </div>
-
-      <div class="board" id="board">
-        <div class="target" id="target">1</div>
-      </div>
-
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <div class="start-controls">
-          <label for="duration" class="small">Thời lượng (giây)</label>
-          <input id="duration" type="number" value="30" min="5" max="120" style="width:80px;padding:6px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
-          <button id="startBtn">Bắt đầu</button>
-          <button id="resetBtn" class="ghost">Đặt lại điểm</button>
-        </div>
-        <div class="help">Mẹo: điểm tăng thêm nếu bấm nhanh nhiều lần</div>
-      </div>
-
-      <footer>Demo đơn giản với HTML/CSS/JS — không yêu cầu server</footer>
+    <div class="projects_section">
+        Projects
     </div>
-  </div>
 
-  <script>
-    // --- Elements ---
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const loginBtn = document.getElementById('loginBtn');
-    const guestBtn = document.getElementById('guestBtn');
-    const greeting = document.getElementById('greeting');
-    const board = document.getElementById('board');
-    const target = document.getElementById('target');
-    const timeEl = document.getElementById('time');
-    const scoreEl = document.getElementById('score');
-    const highEl = document.getElementById('high');
-    const startBtn = document.getElementById('startBtn');
-    const resetBtn = document.getElementById('resetBtn');
-    const durationInput = document.getElementById('duration');
+    <div class="contact_section">
+        Contact
+    </div>
 
-    // --- State ---
-    let username = null;
-    let score = 0;
-    let high = Number(localStorage.getItem('mini-game-high') || 0);
-    let timer = null;
-    let timeLeft = 0;
-
-    highEl.textContent = high;
-    timeEl.textContent = 0;
-
-    // Simple "login": accept any non-empty username/password and store in localStorage
-    function doLogin(asGuest=false) {
-      if (asGuest) {
-        username = 'Khách';
-      } else {
-        const u = usernameInput.value.trim();
-        const p = passwordInput.value.trim();
-        if (!u || !p) { alert('Vui lòng nhập cả tên và mật khẩu.'); return; }
-        // For demo only: we "save" a small profile in localStorage
-        username = u;
-        localStorage.setItem('mini-game-user', JSON.stringify({username:u, created:Date.now()}));
-      }
-      greeting.textContent = `Xin chào, ${username}`;
-    }
-
-    loginBtn.addEventListener('click', ()=>doLogin(false));
-    guestBtn.addEventListener('click', ()=>doLogin(true));
-
-    // Place the target randomly inside the board (keeping it fully visible)
-    function placeTarget() {
-      const rect = board.getBoundingClientRect();
-      const tW = target.offsetWidth;
-      const tH = target.offsetHeight;
-      const x = Math.random() * (rect.width - tW);
-      const y = Math.random() * (rect.height - tH);
-      target.style.transform = `translate(${x}px, ${y}px)`;
-      target.textContent = Math.floor(Math.random()*9)+1;
-    }
-
-    // Start game
-    function startGame() {
-      if (!username) { alert('Vui lòng đăng nhập hoặc chơi dưới dạng khách trước khi bắt đầu.'); return; }
-      score = 0;
-      scoreEl.textContent = score;
-      timeLeft = Math.max(5, Math.min(120, Number(durationInput.value) || 30));
-      timeEl.textContent = timeLeft;
-      startBtn.disabled = true;
-      placeTarget();
-
-      timer = setInterval(()=>{
-        timeLeft -= 1;
-        timeEl.textContent = timeLeft;
-        if (timeLeft <= 0) endGame();
-      }, 1000);
-    }
-
-    function endGame() {
-      clearInterval(timer);
-      timer = null;
-      startBtn.disabled = false;
-      // update high score per username
-      const key = `mini-game-high-${username}`;
-      const prev = Number(localStorage.getItem(key) || 0);
-      if (score > prev) {
-        localStorage.setItem(key, score);
-        // also save global high
-        if (score > high) { high = score; localStorage.setItem('mini-game-high', high); highEl.textContent = high; }
-        alert(`Kết thúc! Điểm: ${score}. Đây là điểm cao mới của bạn!`);
-      } else {
-        alert(`Kết thúc! Điểm: ${score}. Điểm cao của bạn: ${prev}`);
-      }
-    }
-
-    // Clicking the target increases score and moves it
-    target.addEventListener('click', (e)=>{
-      if (!timer) return; // only count clicks during active game
-      // small scoring rule: number shown * random multiplier
-      const base = Number(target.textContent) || 1;
-      const combo = Math.max(1, Math.floor(Math.random()*3)+1);
-      score += base * combo;
-      scoreEl.textContent = score;
-      // visual feedback
-      target.style.transform += ' scale(0.95)';
-      setTimeout(()=>{ placeTarget(); }, 120);
-    });
-
-    // Reset local high score for current user
-    resetBtn.addEventListener('click', ()=>{
-      if (!username) { alert('Đăng nhập trước đã.'); return; }
-      const key = `mini-game-high-${username}`;
-      localStorage.removeItem(key);
-      alert('Điểm cao của bạn đã được đặt lại.');
-    });
-
-    startBtn.addEventListener('click', startGame);
-
-    // Restore previous session user if any
-    (function restore(){
-      const u = localStorage.getItem('mini-game-user');
-      if (u) {
-        try{ username = JSON.parse(u).username; greeting.textContent = `Xin chào, ${username}`; }catch(e){}
-      }
-      // load per-user high
-      if (username) {
-        const key = `mini-game-high-${username}`;
-        const h = Number(localStorage.getItem(key) || localStorage.getItem('mini-game-high') || 0);
-        highEl.textContent = h;
-      }
-      placeTarget();
-    })();
-
-    // Make target react to window resize
-    window.addEventListener('resize', ()=>{ if (!timer) placeTarget(); });
-  </script>
+    <div class="footer">
+        Footer
+    </div>
 </body>
 </html>
-
