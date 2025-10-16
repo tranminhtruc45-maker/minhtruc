@@ -8,7 +8,7 @@ body{
     font-family: "Poppins",sans-serif;
     background-color: black;
     color: white;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 
@@ -58,11 +58,69 @@ nav{
     font-size: 10vw;
     line-height: 1;
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: 600;
 }
 
 .scroll_btn{
     position: absolute;
     bottom: 2vh;
     right: 3vh;
+}
+
+.about_section{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about_section img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+.about_span{
+    z-index: 1;
+    margin-left: 2vw;
+}
+
+.about_content{
+    z-index: 1;
+    margin-bottom: -30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5vh;
+}
+
+.about_topics{
+    width: 95%;
+    display: flex;
+    gap: 4vw;
+    text-transform: uppercase;
+}
+
+.about_text{
+    font-size: 1.5vw;
+    width: 95%;
+}
+
+.skills{
+    z-index: 1;
+    padding: 0 2.5%;
+    font-family: "Anton", sans-serif;
+    text-transform: uppercase;
+    font-size: 2.5vw;
+    display: flex;
+    justify-content: flex-start;
+    gap: 3vw;
+    overflow: hidden;
 }
